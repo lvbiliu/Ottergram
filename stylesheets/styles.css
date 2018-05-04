@@ -33,7 +33,7 @@ a{
 .thumbnail-image{
   width: 100%;
   display: block;
-  height: 80%;
+  /* height: 80%; */
 }
 .thumbnail-title{
   display: block;
@@ -42,7 +42,7 @@ a{
   background-color: lightgrey;
   color: white;
   font-size: 18px;
-  height: 20%;
+  /* height: 20%; */
 }
 .logo-text{
   background-color: white;
@@ -70,6 +70,15 @@ a{
   max-width: 120px;
   border: 1px solid rgb(100%, 100%, 100%);
   border: 1px solid rgba(100%, 100%, 100%,0.8);
+
+  /* transform: scale(1.2); */
+  /* -webkit-transition: transform 133ms ease-in-out; */
+  /* -o-transition: transform 133ms ease-in-out; */
+  transition: transform 133ms ease-in-out;
+}
+.thumbnail-item:hover{
+  transform: scale(1.2);
+  /* transition: transform 1000ms ease-in; */
 }
 /* .thumbnail-item + .thumbnail-item{
   margin-top: 10px;
@@ -83,6 +92,13 @@ a{
 .detail-image-frame{
   position: relative;
   text-align: center;
+  transition: transform 333ms cubic-bezier(1, .06, .28,1);
+}
+.is-tiny{
+  transform: scale(0.001);
+  /* -webkit-transition: transform 0ms; */
+  /* -o-transition: transform 0ms; */
+  transition: transform 0ms;
 }
 .detail-image{
   width: 90%;
@@ -97,6 +113,16 @@ a{
   font-family: airstreamregular;
   color: white;
 }
+.hidden-detail .detail-image-container{
+  display: none;
+}
+.hidden-detail .thumbnail-list{
+  flex-direction: column;
+  text-align: center;
+}
+.hidden-detail .thumbnail-item{
+  max-width: 80%;
+}
 @media all and (min-width: 1025px) {
   .main-content{
     flex-direction: row;
@@ -106,9 +132,14 @@ a{
     flex-direction: column;
     order: 0;
     margin-left: 10px;
+    padding: 0 35px;
+
+  }
+  .thumbnail-list::-webkit-scrollbar{
+    display:none;
   }
   .thumbnail-item{
-    max-width: 180px;
+    max-width: 260px;
   }
   .thumbnail-item + .thumbnail-item{
     margin-top: 10px;
@@ -122,7 +153,11 @@ a{
   .thumbnail-list{
     flex-direction: column;
     order: 0;
-    /* margin-left: 10px; */
+    margin-left: 10px;
+    padding: 0 25px;
+  }
+  .thumbnail-list::-webkit-scrollbar{
+    display:none;
   }
   .thumbnail-item{
     max-width: 180px;
@@ -137,4 +172,15 @@ a{
   /* .detail-image-container{
     flex: 0 1 auto;
   } */
+  .hidden-detail .detail-image-container{
+    display: none;
+  }
+  .hidden-detail .thumbnail-list{
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+  }
+  .hidden-detail .thumbnail-item{
+    max-width: 80%;
+  }
 }
